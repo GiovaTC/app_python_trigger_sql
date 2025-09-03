@@ -73,6 +73,7 @@ BEGIN
     );
 END
 GO
+
 📖 Explicación:
 INSTEAD OF INSERT intercepta el INSERT.
 
@@ -84,7 +85,7 @@ Si no existe → hace el INSERT.
 Guarda como app_trigger.py:
 
 python
-Copiar código
+
 import pyodbc
 
 # ========= Configura tu conexión =========
@@ -118,7 +119,6 @@ def upsert_usuario(nombre: str, edad: int, email: str):
             cols = [d[0] for d in cur.description]
             return dict(zip(cols, row))
 
-
 if __name__ == "__main__":
     # ---- INSERT inicial ----
     fila1 = upsert_usuario("Carlos Pérez", 28, "carlos.perez@example.com")
@@ -127,21 +127,22 @@ if __name__ == "__main__":
     # ---- UPDATE (mismo Email) ----
     fila2 = upsert_usuario("Carlos A. Pérez", 29, "carlos.perez@example.com")
     print(f"[UPSERT] -> {fila2}")
+
 3️⃣ Ejecución
 Ejecuta el script de SQL:
 
 sql
-Copiar código
+
 :r schema_trigger.sql
 Corre la app Python:
 
 bash
-Copiar código
+
 python app_trigger.py
 Resultado esperado en consola:
 
 csharp
-Copiar código
+
 [UPSERT] -> {'Id': 1, 'Nombre': 'Carlos Pérez', 'Edad': 28, 'Email': 'carlos.perez@example.com'}
 [UPSERT] -> {'Id': 1, 'Nombre': 'Carlos A. Pérez', 'Edad': 29, 'Email': 'carlos.perez@example.com'}
 Verificación en SQL Server:
