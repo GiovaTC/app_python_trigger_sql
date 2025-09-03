@@ -4,6 +4,8 @@
 Ejemplo equivalente pero usando un **trigger en SQL Server** en lugar de un **Stored Procedure**.  
 La idea es que el trigger se encargue de la lógica de **upsert** cuando se hace un `INSERT`.
 
+<img width="1272" height="1079" alt="image" src="https://github.com/user-attachments/assets/86d866ca-29b0-491e-a776-bebd12a53175" />
+
 ---
 
 ## 📌 Concepto
