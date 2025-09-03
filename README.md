@@ -148,5 +148,5 @@ csharp
 Verificación en SQL Server:
 
 sql
-Copiar código
+    
 SELECT * FROM dbo.Usuarios;
